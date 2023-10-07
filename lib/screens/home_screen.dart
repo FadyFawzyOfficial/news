@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news/widgets/news_tile.dart';
 
-import '../widgets/categories_list_view.dart';
+import '../widgets/news_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,7 +25,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: const NewsTile(),
+      body: const NewsListView(),
     );
   }
 }
