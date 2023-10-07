@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/category_card.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -22,6 +24,14 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      body: const Row(
+        children: [
+          CategoryCard(
+            title: 'Business',
+            image: 'assets/images/business.avif',
+          ),
+        ],
       ),
     );
   }
