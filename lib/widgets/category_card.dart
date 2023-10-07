@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
-  final String title;
+  final String name;
   final String image;
 
   const CategoryCard({
     super.key,
-    required this.title,
+    required this.name,
     required this.image,
   });
 
@@ -21,9 +21,13 @@ class CategoryCard extends StatelessWidget {
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: [
-          Image.asset(image),
+          Image.asset(
+            image,
+            width: 200,
+            fit: BoxFit.cover,
+          ),
           Text(
-            title,
+            name,
             style: const TextStyle(color: Colors.white, fontSize: 18),
           ),
         ],
