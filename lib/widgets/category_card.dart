@@ -14,18 +14,14 @@ class CategoryCard extends StatelessWidget {
   Widget build(context) {
     return Card(
       clipBehavior: Clip.hardEdge,
-      margin: const EdgeInsets.all(0),
+      margin: const EdgeInsets.all(8),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: [
-          Image.asset(
-            image,
-            width: 200,
-            fit: BoxFit.cover,
-          ),
+          Image.asset(image),
           Text(
             title,
             style: const TextStyle(color: Colors.white, fontSize: 18),
