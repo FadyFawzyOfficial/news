@@ -26,10 +26,10 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: const Column(
-        children: [
-          CategoriesListView(),
-          Expanded(child: NewsListView()),
+      body: const CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(child: CategoriesListView()),
+          NewsListView(),
         ],
       ),
     );
