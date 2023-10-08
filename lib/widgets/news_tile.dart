@@ -6,7 +6,7 @@ class NewsTile extends StatelessWidget {
   @override
   Widget build(context) {
     return const Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

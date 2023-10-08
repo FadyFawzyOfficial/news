@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
       body: const CustomScrollView(
         slivers: [
           SliverToBoxAdapter(child: CategoriesListView()),
-          SliverToBoxAdapter(child: NewsListView()),
+          NewsListView(),
         ],
       ),
     );
