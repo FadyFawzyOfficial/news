@@ -26,11 +26,13 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: const Column(
-        children: [
-          CategoriesListView(),
-          Expanded(child: NewsListView()),
-        ],
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            CategoriesListView(),
+            NewsListView(),
+          ],
+        ),
       ),
     );
   }
