@@ -1,33 +1,37 @@
 import 'package:flutter/material.dart';
 
+import '../models/article.dart';
+
 class NewsTile extends StatelessWidget {
-  const NewsTile({super.key});
+  final Article article;
+
+  const NewsTile({super.key, required this.article});
 
   @override
   Widget build(context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
             child: Image(
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
               image: NetworkImage(
-                'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+                article.image,
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.symmetric(vertical: 8),
             child: Text(
-              'Large Title should be places in this place Large Title should be places in this place',
+              article.title,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 color: Colors.black87,
                 fontWeight: FontWeight.w500,
@@ -35,9 +39,9 @@ class NewsTile extends StatelessWidget {
             ),
           ),
           Text(
-            'and here is the description of the news you can place your desc here',
+            article.subtitle,
             maxLines: 2,
-            style: TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.grey),
           ),
         ],
       ),
