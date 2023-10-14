@@ -14,18 +14,22 @@ class NewsListView extends StatefulWidget {
 
 class _NewsListViewState extends State<NewsListView> {
   late final List<Article> articles;
+
   @override
-  void initState() async {
+  void initState() {
     super.initState();
-    articles = await NewsService(dio: Dio()).getNews();
+    getNews();
   }
+
+  Future<void> getNews() async =>
+      articles = await NewsService(dio: Dio()).getNews();
 
   @override
   Widget build(context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) => NewsTile(article: articles[index]),
-        childCount: articles.length,
+        // childCount: articles.length,
       ),
     );
     // return SliverList.builder(

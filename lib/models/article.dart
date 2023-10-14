@@ -17,8 +17,8 @@ class Article {
   factory Article.fromMap(Map<String, dynamic> map) {
     return Article(
       title: map['title'],
-      subtitle: map['subtitle'] ?? '',
-      image: map['image'] ?? '',
+      subtitle: map['description'] ?? '',
+      image: map['urlToImage'] ?? '',
     );
   }
 
@@ -27,8 +27,8 @@ class Article {
   Map<String, dynamic> toMap() {
     return {
       'title': title,
-      'subtitle': subtitle,
-      'image': image,
+      'description': subtitle,
+      'urlToImage': image,
     };
   }
 }
