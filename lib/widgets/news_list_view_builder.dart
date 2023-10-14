@@ -36,7 +36,14 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
               child: CircularProgressIndicator(),
             ),
           )
-        : NewsListView(articles: articles);
+        : articles.isEmpty
+            ? const SliverFillRemaining(
+                hasScrollBody: false,
+                child: Center(
+                  child: Text('There was an error, try again later'),
+                ),
+              )
+            : NewsListView(articles: articles);
     // return SliverList.builder(
     //   itemBuilder: (context, index) => const NewsTile(),
     //   itemCount: 10,
