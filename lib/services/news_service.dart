@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 
+import '../models/article.dart';
+
 class NewsService {
   final Dio dio;
 
@@ -7,13 +9,11 @@ class NewsService {
     required this.dio,
   });
 
-  Future<void> getNews() async {
+  Future<List<Article>> getNews() async {
     final response = await dio.get(
-        'https://newsapi.org/v2/top-headlines?apiKey=3c88955c487e4d9db668f011dd85e737&country=eg&category=general');
-    Map<String, dynamic> jsonData = response.data;
-    List<dynamic> articles = jsonData['articles'];
-    for (var article in articles) {
-      print(article);
-    }
+        'https://newsapi.org/v2/top-headlines?apiKey=3c88955c487e4d9db668f011dd85e737&country=us&category=general');
+    List<Article> articles = List.from(
+        response.data['articles'].map((article) => Article.fromMap(article)));
+    return articles;
   }
 }
