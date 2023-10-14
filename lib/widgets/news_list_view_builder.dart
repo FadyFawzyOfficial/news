@@ -1,16 +1,30 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
+import '../models/article.dart';
 import '../services/news_service.dart';
 import 'news_list_view.dart';
 
-class NewsListViewBuilder extends StatelessWidget {
+class NewsListViewBuilder extends StatefulWidget {
   const NewsListViewBuilder({super.key});
+
+  @override
+  State<NewsListViewBuilder> createState() => _NewsListViewBuilderState();
+}
+
+class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
+  late Future<List<Article>> future;
+
+  @override
+  void initState() {
+    super.initState();
+    future = NewsService(dio: Dio()).getNews();
+  }
 
   @override
   Widget build(context) {
     return FutureBuilder(
-      future: NewsService(dio: Dio()).getNews(),
+      future: future,
       builder: (context, snapshot) {
         return snapshot.connectionState == ConnectionState.waiting
             ? const SliverFillRemaining(
