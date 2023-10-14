@@ -6,7 +6,8 @@ import '../services/news_service.dart';
 import 'news_list_view.dart';
 
 class NewsListViewBuilder extends StatefulWidget {
-  const NewsListViewBuilder({super.key});
+  final String category;
+  const NewsListViewBuilder({super.key, this.category = 'general'});
 
   @override
   State<NewsListViewBuilder> createState() => _NewsListViewBuilderState();
@@ -18,7 +19,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
   @override
   void initState() {
     super.initState();
-    future = NewsService(dio: Dio()).getNews();
+    future = NewsService(dio: Dio()).getNews(category: widget.category);
   }
 
   @override
@@ -32,7 +33,8 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
             : snapshot.data!.isEmpty
                 ? const SliverFillRemaining(
                     child: Center(
-                        child: Text('There was an error, try again later')),
+                      child: Text('There was an error, try again later'),
+                    ),
                   )
                 : NewsListView(articles: snapshot.data!);
       },
