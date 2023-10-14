@@ -21,8 +21,10 @@ class _NewsListViewState extends State<NewsListView> {
     getNews();
   }
 
-  Future<void> getNews() async =>
-      articles = await NewsService(dio: Dio()).getNews();
+  Future<void> getNews() async {
+    articles = await NewsService(dio: Dio()).getNews();
+    setState(() {});
+  }
 
   @override
   Widget build(context) {
